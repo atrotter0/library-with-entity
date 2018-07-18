@@ -17,35 +17,46 @@ namespace Library.Migrations
 
             modelBuilder.Entity("Library.Models.Author", b =>
                 {
-                    b.Property<int>("Id")
+                    b.Property<int>("AuthorId")
                         .ValueGeneratedOnAdd();
 
-                    b.Property<string>("FirstName")
-                        .HasMaxLength(50);
+                    b.Property<string>("AuthorFirstName");
 
-                    b.Property<string>("LastName")
-                        .HasMaxLength(75);
+                    b.Property<string>("AuthorLastName");
 
-                    b.HasKey("Id");
+                    b.HasKey("AuthorId");
 
                     b.ToTable("Authors");
                 });
 
             modelBuilder.Entity("Library.Models.Book", b =>
                 {
-                    b.Property<int>("Id")
+                    b.Property<int>("BookId")
                         .ValueGeneratedOnAdd();
 
-                    b.Property<int?>("AuthorId");
+                    b.Property<string>("BookTitle");
 
-                    b.Property<string>("Name")
-                        .HasMaxLength(75);
+                    b.HasKey("BookId");
 
-                    b.HasKey("Id");
+                    b.ToTable("Books");
+                });
+
+            modelBuilder.Entity("Library.Models.BookAuthor", b =>
+                {
+                    b.Property<int>("BookAuthorId")
+                        .ValueGeneratedOnAdd();
+
+                    b.Property<int>("AuthorId");
+
+                    b.Property<int>("BookId");
+
+                    b.HasKey("BookAuthorId");
 
                     b.HasIndex("AuthorId");
 
-                    b.ToTable("Books");
+                    b.HasIndex("BookId");
+
+                    b.ToTable("BookAuthors");
                 });
 
             modelBuilder.Entity("Library.Models.Copy", b =>
@@ -69,22 +80,26 @@ namespace Library.Migrations
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd();
 
-                    b.Property<string>("FirstName")
-                        .HasMaxLength(50);
+                    b.Property<string>("FirstName");
 
-                    b.Property<string>("LastName")
-                        .HasMaxLength(75);
+                    b.Property<string>("LastName");
 
                     b.HasKey("Id");
 
                     b.ToTable("Patrons");
                 });
 
-            modelBuilder.Entity("Library.Models.Book", b =>
+            modelBuilder.Entity("Library.Models.BookAuthor", b =>
                 {
                     b.HasOne("Library.Models.Author", "Author")
-                        .WithMany("Books")
-                        .HasForeignKey("AuthorId");
+                        .WithMany("BookAuthors")
+                        .HasForeignKey("AuthorId")
+                        .OnDelete(DeleteBehavior.Cascade);
+
+                    b.HasOne("Library.Models.Book", "Book")
+                        .WithMany("BookAuthors")
+                        .HasForeignKey("BookId")
+                        .OnDelete(DeleteBehavior.Cascade);
                 });
         }
     }

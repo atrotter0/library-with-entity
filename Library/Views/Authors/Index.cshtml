@@ -11,11 +11,11 @@
         <div class="grid-container">
             @foreach(var author in Model)
             {
-                <div class="grid-item">@Html.DisplayFor(modelItem => author.FirstName) @Html.DisplayFor(modelItem => author.LastName)</div>
-                <div class="grid-item">@Html.ActionLink("Details", "Details", new { id = author.Id })</div>
-                <div class="grid-item">@Html.ActionLink("Edit", "Edit", new { id = author.Id })</div>
+                <div class="grid-item">@Html.DisplayFor(modelItem => author.AuthorFirstName) @Html.DisplayFor(modelItem => author.AuthorLastName)</div>
+                <div class="grid-item">@Html.ActionLink("Details", "Details", new { id = author.AuthorId })</div>
+                <div class="grid-item">@Html.ActionLink("Edit", "Edit", new { id = author.AuthorId })</div>
                 <div class="grid-item">
-                    @using (Html.BeginForm("delete", "authors", new { id = author.Id }, FormMethod.Post))
+                    @using (Html.BeginForm("delete", "authors", new { id = author.AuthorId }, FormMethod.Post))
                     {
                         <input type="submit" value="Delete" class="no-btn-styles"/>
                     }

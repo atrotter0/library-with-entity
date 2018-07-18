@@ -8,11 +8,9 @@ namespace Library.Models
     public class Author
     {
         [Key]
-        public int Id { get; set; }
-        [StringLength(50)]
-        public string FirstName { get; set; }
-        [StringLength(75)]
-        public string LastName { get; set; }
+        public int AuthorId { get; set; }
+        public string AuthorFirstName { get; set; }
+        public string AuthorLastName { get; set; }
         public virtual ICollection<BookAuthor> BookAuthors { get; set; }
     }
 }

@@ -38,14 +38,14 @@ namespace Library.Controllers
         [HttpGet("/books/{id}")]
         public ActionResult Details(int id)
         {
-            Book book = db.Books.FirstOrDefault(books => books.Id == id);
+            Book book = db.Books.FirstOrDefault(books => books.BookId == id);
             return View(book);
         }
 
         [HttpGet("books/{id}/edit")]
         public ActionResult Edit(int id)
         {
-            Book book = db.Books.FirstOrDefault(books => books.Id == id);
+            Book book = db.Books.FirstOrDefault(books => books.BookId == id);
             return View(book);
         }
 
@@ -60,7 +60,7 @@ namespace Library.Controllers
         [HttpPost("books/{id}/delete")]
         public ActionResult Delete(int id)
         {
-            Book book = db.Books.FirstOrDefault(books => books.Id == id);
+            Book book = db.Books.FirstOrDefault(books => books.BookId == id);
             db.Books.Remove(book);
             db.SaveChanges();
             return RedirectToAction("Index");
