@@ -10,5 +10,7 @@ namespace Library.Models
         [StringLength(75)]
         public string Name { get; set; }
         public Author Author { get; set; }
+
+        public ICollection<BookAuthor> BookAuthors { get; set; }
     }
 }

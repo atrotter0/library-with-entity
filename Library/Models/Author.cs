@@ -13,6 +13,6 @@ namespace Library.Models
         [StringLength(75)]
         public string LastName { get; set; }
 
-        public ICollection<Book> Books { get; set; } = new List<Book>();
+        public ICollection<BookAuthor> BookAuthors { get; set; }
     }
 }

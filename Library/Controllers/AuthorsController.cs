@@ -12,6 +12,12 @@ namespace Library.Controllers
     {
         private LibraryContext db = new LibraryContext();
 
+        [HttpGet("/authors")]
+        public ActionResult Index()
+        {
+            return View(db.Authors.ToList());
+        }
+
         [HttpGet("/authors/new")]
         public ActionResult Create()
         {
