@@ -36,11 +36,34 @@ namespace Library.Controllers
 
 
         [HttpGet("/books/{id}")]
-        public IActionResult Details(int id)
+        public ActionResult Details(int id)
         {
             Book book = db.Books.FirstOrDefault(books => books.Id == id);
             return View(book);
         }
 
+        [HttpGet("books/{id}/edit")]
+        public ActionResult Edit(int id)
+        {
+            Book book = db.Books.FirstOrDefault(books => books.Id == id);
+            return View(book);
+        }
+
+        [HttpPost("books/{id}/edit")]
+        public ActionResult Edit(int id, Book book)
+        {
+            db.Entry(book).State = EntityState.Modified;
+            db.SaveChanges();
+            return RedirectToAction("Index");
+        }
+
+        [HttpPost("books/{id}/delete")]
+        public ActionResult Delete(int id)
+        {
+            Book book = db.Books.FirstOrDefault(books => books.Id == id);
+            db.Books.Remove(book);
+            db.SaveChanges();
+            return RedirectToAction("Index");
+        }
     }
 }

@@ -6,13 +6,20 @@
 
 <div class="container">
     <div class="page-box">
-        <h2 class="fancy-shadow page-header">List</h2>
+        <h2 class="fancy-shadow page-header">Books</h2>
         @Html.ActionLink("Add Book", "Create", "Books", null, new { @class="btn btn-lg btn-info" })
         <div class="grid-container">
             @foreach(var book in Model)
             {
                 <div class="grid-item">@Html.DisplayFor(modelItem => book.Name)</div>
                 <div class="grid-item">@Html.ActionLink("Details", "Details", new { id = book.Id })</div>
+                <div class="grid-item">@Html.ActionLink("Edit", "Edit", new { id = book.Id })</div>
+                <div class="grid-item">
+                    @using (Html.BeginForm("delete", "books", new { id = book.Id }, FormMethod.Post))
+                    {
+                        <input type="submit" value="Delete" class="no-btn-styles"/>
+                    }
+                </div>
             }
         </div>
     </div>
