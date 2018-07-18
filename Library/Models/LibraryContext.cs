@@ -11,7 +11,7 @@ namespace Library
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
-            optionsBuilder.UseMySql(@"Server=localhost;Port=8889;database=university_registrar;uid=root;pwd=root;");
+            optionsBuilder.UseMySql(@"Server=localhost;Port=8889;database=library;uid=root;pwd=root;");
         }
     }
 }
