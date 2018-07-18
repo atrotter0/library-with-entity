@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using Library.Models;
 
@@ -45,8 +46,9 @@ namespace Library.Controllers
         [HttpGet("books/{id}/edit")]
         public ActionResult Edit(int id)
         {
-            Book book = db.Books.FirstOrDefault(books => books.BookId == id);
-            return View(book);
+            var thisBook = db.Books.FirstOrDefault(books => books.BookId == id);
+            ViewBag.AuthorId = new SelectList(db.Authors, "AuthorId", "AuthorFirstName");
+            return View(thisBook);
         }
 
         [HttpPost("books/{id}/edit")]

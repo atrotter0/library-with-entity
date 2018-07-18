@@ -15,6 +15,10 @@
                     <h4>@Html.LabelFor(model => model.BookTitle)</h4>
                     @Html.TextBoxFor(model => model.BookTitle, new { @class = "form-control" })
                 </div>
+                <div class="form-group">
+                    <h4>@Html.LabelFor(model => model.AuthorId)</h4>
+                    @Html.DropDownList("AuthorId")
+                </div>
                 <input type="submit" value="Update" class="btn btn-md btn-default">
             }
         </div>
