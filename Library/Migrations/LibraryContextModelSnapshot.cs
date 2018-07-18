@@ -3,20 +3,19 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
 using Microsoft.EntityFrameworkCore.Migrations;
-using Library;
+using Library.Models;
 
 namespace Library.Migrations
 {
-    [DbContext(typeof(Library))]
-    [Migration("20180718163532_CreateDatabase")]
-    partial class CreateDatabase
+    [DbContext(typeof(LibraryContext))]
+    partial class LibraryContextModelSnapshot : ModelSnapshot
     {
-        protected override void BuildTargetModel(ModelBuilder modelBuilder)
+        protected override void BuildModel(ModelBuilder modelBuilder)
         {
             modelBuilder
                 .HasAnnotation("ProductVersion", "1.1.1");
 
-            modelBuilder.Entity("Library.Author", b =>
+            modelBuilder.Entity("Library.Models.Author", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd();
@@ -32,14 +31,12 @@ namespace Library.Migrations
                     b.ToTable("Authors");
                 });
 
-            modelBuilder.Entity("Library.Book", b =>
+            modelBuilder.Entity("Library.Models.Book", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd();
 
                     b.Property<int?>("AuthorId");
-
-                    b.Property<int>("Copy");
 
                     b.Property<string>("Name")
                         .HasMaxLength(75);
@@ -51,7 +48,7 @@ namespace Library.Migrations
                     b.ToTable("Books");
                 });
 
-            modelBuilder.Entity("Library.Copy", b =>
+            modelBuilder.Entity("Library.Models.Copy", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd();
@@ -67,7 +64,7 @@ namespace Library.Migrations
                     b.ToTable("Copies");
                 });
 
-            modelBuilder.Entity("Library.Patron", b =>
+            modelBuilder.Entity("Library.Models.Patron", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd();
@@ -83,9 +80,9 @@ namespace Library.Migrations
                     b.ToTable("Patrons");
                 });
 
-            modelBuilder.Entity("Library.Book", b =>
+            modelBuilder.Entity("Library.Models.Book", b =>
                 {
-                    b.HasOne("Library.Author", "Author")
+                    b.HasOne("Library.Models.Author", "Author")
                         .WithMany("Books")
                         .HasForeignKey("AuthorId");
                 });

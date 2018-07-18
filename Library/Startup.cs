@@ -7,6 +7,8 @@ using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
+using Microsoft.EntityFrameworkCore;
+using Library.Models;
 
 namespace Library
 {
@@ -29,6 +31,10 @@ namespace Library
         {
             // Add framework services.
             services.AddMvc();
+        //    services.AddEntityFrameworkMySql()
+        //    .AddDbContext<LibraryContext>(options =>
+        //                              options
+        //                                   .UseMySql(Configuration["ConnectionStrings:DefaultConnection"]));
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

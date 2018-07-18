@@ -58,7 +58,6 @@ namespace Library.Migrations
                     Id = table.Column<int>(nullable: false)
                         .Annotation("MySql:ValueGeneratedOnAdd", true),
                     AuthorId = table.Column<int>(nullable: true),
-                    Copy = table.Column<int>(nullable: false),
                     Name = table.Column<string>(maxLength: 75, nullable: true)
                 },
                 constraints: table =>

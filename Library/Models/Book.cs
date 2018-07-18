@@ -1,7 +1,7 @@
 ﻿using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 
-namespace Library
+namespace Library.Models
 {
     public class Book
     {
@@ -9,9 +9,6 @@ namespace Library
 
         [StringLength(75)]
         public string Name { get; set; }
-
-        public int Copy { get; set; }
-
         public Author Author { get; set; }
     }
 }

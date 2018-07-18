@@ -1,0 +1,10 @@
+﻿@model Library.Models.Book
+@{
+  Layout = "_Layout";
+}
+
+<div class="container">
+    <h2>@Html.DisplayFor(model => model.Name)</h2>
+    <hr />
+    <p>@Html.ActionLink("Back to Book List", "Index")</p>
+</div>
