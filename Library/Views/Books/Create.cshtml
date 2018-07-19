@@ -1,4 +1,5 @@
-﻿@model Library.Models.Book
+﻿@using Library.Models
+@model Library.Models.Book
 
 @{
     ViewData["Title"] = "Library | Add Book";
@@ -11,9 +12,16 @@
             @using (Html.BeginForm())
             {
                 <div class="form-group">
-                    <h4>@Html.LabelFor(model => model.BookTitle)</h4>
+                    <label asp-for="BookTitle"><h4>Title:</h4></label>
                     @Html.TextBoxFor(model => model.BookTitle, new { @class = "form-control" })
                 </div>
+                @if (ViewBag.AuthorId.Count != 0)
+                {
+                    <div class="form-group">
+                        <label for="AuthorId"><h4>Authors:</h4></label>
+                        @Html.DropDownList("AuthorId", null, "Select an Author", new { @class = "form-control" })
+                    </div>
+                }
                 <input type="submit" value="Create Book" class="btn btn-lg btn-default">
             }
         </div>

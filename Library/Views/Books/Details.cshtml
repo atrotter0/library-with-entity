@@ -1,4 +1,5 @@
-﻿@model Library.Models.Book
+﻿@using Library.Models
+@model Library.Models.Book
 
 @{
   Layout = "_Layout";
@@ -6,6 +7,13 @@
 
 <div class="container">
     <h2>@Html.DisplayFor(model => model.BookTitle)</h2>
+    <h4>Authors:</h4>
+    <ul>
+        @foreach (var author in ViewBag.AuthorList)
+        {
+            <li><a href="/authors/@author.AuthorId">@author.AuthorFirstName @author.AuthorLastName</a></li>
+        }
+    </ul>
     <hr />
     <p>@Html.ActionLink("Back to Book List", "Index")</p>
 </div>
