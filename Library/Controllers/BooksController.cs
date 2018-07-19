@@ -36,6 +36,10 @@ namespace Library.Controllers
         public ActionResult Create(Book book, List<int> AuthorIds)
         {
             db.Books.Add(book);
+            Copy copy = new Copy();
+            db.Copies.Add(copy);
+            BookCopy newBookCopy = new BookCopy(book.BookId, copy.CopyId);
+            db.BooksCopies.Add(newBookCopy);
             foreach (int authorId in AuthorIds)
             {
                 BookAuthor newBookAuthor = new BookAuthor(book.BookId, authorId);

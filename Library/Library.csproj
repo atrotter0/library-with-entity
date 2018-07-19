@@ -33,5 +33,6 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Remove="ViewModels\EmptyClass.cs" />
+    <Compile Remove="Controllers\CopiesController.cs" />
   </ItemGroup>
 </Project>

@@ -8,9 +8,10 @@ using Library.Models;
 namespace Library.Migrations
 {
     [DbContext(typeof(LibraryContext))]
-    partial class LibraryContextModelSnapshot : ModelSnapshot
+    [Migration("20180719202705_BookCopyJoinTable")]
+    partial class BookCopyJoinTable
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
             modelBuilder
                 .HasAnnotation("ProductVersion", "1.1.1");
@@ -79,7 +80,7 @@ namespace Library.Migrations
 
             modelBuilder.Entity("Library.Models.Copy", b =>
                 {
-                    b.Property<int>("CopyId")
+                    b.Property<int>("Id")
                         .ValueGeneratedOnAdd();
 
                     b.Property<bool>("CheckedOut");
@@ -88,7 +89,7 @@ namespace Library.Migrations
 
                     b.Property<int>("Number");
 
-                    b.HasKey("CopyId");
+                    b.HasKey("Id");
 
                     b.ToTable("Copies");
                 });

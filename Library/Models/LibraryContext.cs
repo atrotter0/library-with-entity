@@ -13,6 +13,7 @@ namespace Library.Models
         public DbSet<Patron> Patrons { get; set; }
         public DbSet<Copy> Copies { get; set; }
         public virtual DbSet<BookAuthor> BookAuthors { get; set; }
+        public virtual DbSet<BookCopy> BooksCopies { get; set; }
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {

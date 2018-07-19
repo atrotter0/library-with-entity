@@ -9,11 +9,17 @@ namespace Library.Models
     public class Copy
     {
         [Key]
-        public int Id { get; set; }
+        public int CopyId { get; set; }
         public int Number { get; set; }
         public bool CheckedOut { get; set; }
         public DateTime DueDate { get; set; }
         public virtual ICollection<BookCopy> BooksCopies { get; set; }
 
+        public Copy()
+        {
+            Number = 10;
+            CheckedOut = false;
+            DueDate = new DateTime();
+        }
     }
 }
