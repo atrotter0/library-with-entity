@@ -1,10 +1,18 @@
-﻿@model Library.Models.Author
+﻿@model Library.Models.Patron
 @{
   Layout = "_Layout";
 }
 
 <div class="container">
     <h2>@Html.DisplayFor(model => model.FirstName) @Html.DisplayFor(model => model.LastName)</h2>
+    <h4>Books:</h4>
+    <ul>
+        @foreach (var copy in ViewBag.CopyList)
+        {
+            <li><@copy.Number</li>
+        }
+    </ul>
+    
     <hr />
     <p>@Html.ActionLink("Back to Author List", "Index")</p>
 </div>

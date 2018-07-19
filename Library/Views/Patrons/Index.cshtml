@@ -1,21 +1,21 @@
-﻿@model IEnumerable<Library.Models.Author>
+﻿@model IEnumerable<Library.Models.Patron>
 
 @{
-    ViewData["Title"] = "Library | Authors";
+    ViewData["Title"] = "Library | Patrons";
 }
 
 <div class="container">
     <div class="page-box">
-        <h2 class="fancy-shadow page-header">Authors</h2>
-        @Html.ActionLink("Add Author", "Create", "Authors", null, new { @class="btn btn-lg btn-info" })
+        <h2 class="fancy-shadow page-header">Patrons</h2>
+        @Html.ActionLink("Add Patron", "Create", "Patrons", null, new { @class="btn btn-lg btn-info" })
         <div class="grid-container">
-            @foreach(var author in Model)
+            @foreach(var patron in Model)
             {
-                <div class="grid-item">@Html.DisplayFor(modelItem => author.FirstName) @Html.DisplayFor(modelItem => author.LastName)</div>
-                <div class="grid-item">@Html.ActionLink("Details", "Details", new { id = author.Id })</div>
-                <div class="grid-item">@Html.ActionLink("Edit", "Edit", new { id = author.Id })</div>
+                <div class="grid-item">@Html.DisplayFor(modelItem => patron.FirstName) @Html.DisplayFor(modelItem => patron.LastName)</div>
+                <div class="grid-item">@Html.ActionLink("Details", "Details", new { id = patron.PatronId })</div>
+                <div class="grid-item">@Html.ActionLink("Edit", "Edit", new { id = patron.PatronId })</div>
                 <div class="grid-item">
-                    @using (Html.BeginForm("delete", "authors", new { id = author.Id }, FormMethod.Post))
+                    @using (Html.BeginForm("delete", "patrons", new { id = patron.PatronId }, FormMethod.Post))
                     {
                         <input type="submit" value="Delete" class="no-btn-styles"/>
                     }

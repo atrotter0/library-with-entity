@@ -8,8 +8,14 @@ namespace Library.Models
     public class Patron
     {
         [Key]
-        public int Id { get; set; }
+        public int PatronId { get; set; }
         public string FirstName { get; set; }
         public string LastName { get; set; }
+        public virtual ICollection<PatronCopy> PatronCopies { get; set; }
+
+
+
+
+
     }
 }

@@ -1,12 +1,13 @@
-﻿@model Library.Models.Author
+﻿@using Library.Models
+@model Library.Models.Patron
 
 @{
-    ViewData["Title"] = "Library | Add Author";
+    ViewData["Title"] = "Library | Add Patron";
 }
 
 <div class="container">
     <div class="page-box">
-        <h2 class="fancy-shadow page-header">Add Author</h2>
+        <h2 class="fancy-shadow page-header">Add Patron</h2>
         <div class="form-box">
             @using (Html.BeginForm())
             {
@@ -18,10 +19,10 @@
                     <label asp-for="LastName"><h4>Last Name</h4></label>
                     @Html.TextBoxFor(model => model.LastName, new { @class = "form-control" })
                 </div>
-                <input type="submit" value="Create Author" class="btn btn-lg btn-default">
+                <input type="submit" value="Create Patron" class="btn btn-lg btn-default">
             }
         </div>
-        <p>@Html.ActionLink("Back to Author List", "Index")</p>
+        <p>@Html.ActionLink("Back to Patron List", "Index")</p>
     </div>
 </div>
 

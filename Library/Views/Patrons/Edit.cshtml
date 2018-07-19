@@ -1,4 +1,4 @@
-﻿@model Library.Models.Author
+﻿@model Library.Models.Patron
 
 @{
   Layout = "_Layout";
@@ -6,18 +6,17 @@
 
 <div class="container">
     <div class="page-box">
-        <h2 class="fancy-shadow page-header">Edit Author</h2>
+        <h2 class="fancy-shadow page-header">Edit Patron</h2>
         <div class="form-box">
             @using (Html.BeginForm())
             {
                 <div class="form-group">
-                    @Html.HiddenFor(model => model.Id)
+                    @Html.HiddenFor(model => model.PatronId)
                     <label asp-for="FirstName"><h4>First Name</h4></label>
                     @Html.TextBoxFor(model => model.FirstName, new { @class = "form-control" })
                 </div>
-
                 <div class="form-group">
-                    @Html.HiddenFor(model => model.Id)
+                    @Html.HiddenFor(model => model.PatronId)
                     <label asp-for="LastName"><h4>Last Name</h4></label>
                     @Html.TextBoxFor(model => model.LastName, new { @class = "form-control" })
                 </div>

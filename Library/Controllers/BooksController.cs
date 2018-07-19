@@ -54,6 +54,7 @@ namespace Library.Controllers
         {
             Book book = db.Books.FirstOrDefault(books => books.BookId == id);
             BookCopy bookCopy = db.BooksCopies.FirstOrDefault(books => books.BookId == id);
+            Copy copy = db.Copies.FirstOrDefault(copies => copies.CopyId == bookCopy.CopyId);
             var entryList = db.BookAuthors.Where(entry => entry.BookId == id).ToList();
             List<Author> authorList = new List<Author>();
             foreach (var author in entryList)
@@ -62,7 +63,7 @@ namespace Library.Controllers
                 authorList.Add(db.Authors.FirstOrDefault(record => record.AuthorId == authorId));
             }
             ViewBag.AuthorList = authorList;
-            ViewBag.CopiesCount = bookCopy.Copy.Number;
+            ViewBag.CopiesCount = copy.Number;
             return View(book);
         }
 
