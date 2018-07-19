@@ -31,4 +31,7 @@
     <Folder Include="Views\Patrons\" />
     <Folder Include="Views\Copies\" />
   </ItemGroup>
+  <ItemGroup>
+    <Compile Remove="ViewModels\EmptyClass.cs" />
+  </ItemGroup>
 </Project>

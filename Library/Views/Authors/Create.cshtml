@@ -11,12 +11,12 @@
             @using (Html.BeginForm())
             {
                 <div class="form-group">
-                    <label asp-for="FirstName"><h4>First Name</h4></label>
-                    @Html.TextBoxFor(model => model.FirstName, new { @class = "form-control" })
+                    <label asp-for="AuthorFirstName"><h4>First Name</h4></label>
+                    @Html.TextBoxFor(model => model.AuthorFirstName, new { @class = "form-control" })
                 </div>
                 <div class="form-group">
-                    <label asp-for="LastName"><h4>Last Name</h4></label>
-                    @Html.TextBoxFor(model => model.LastName, new { @class = "form-control" })
+                    <label asp-for="AuthorLastName"><h4>Last Name</h4></label>
+                    @Html.TextBoxFor(model => model.AuthorLastName, new { @class = "form-control" })
                 </div>
                 <input type="submit" value="Create Author" class="btn btn-lg btn-default">
             }

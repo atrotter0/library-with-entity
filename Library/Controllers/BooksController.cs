@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using Library.Models;
 
@@ -38,15 +39,20 @@ namespace Library.Controllers
         [HttpGet("/books/{id}")]
         public ActionResult Details(int id)
         {
-            Book book = db.Books.FirstOrDefault(books => books.Id == id);
+            Book book = db.Books.FirstOrDefault(books => books.BookId == id);
             return View(book);
         }
 
         [HttpGet("books/{id}/edit")]
         public ActionResult Edit(int id)
         {
-            Book book = db.Books.FirstOrDefault(books => books.Id == id);
-            return View(book);
+            Book thisBook = db.Books.FirstOrDefault(books => books.BookId == id);
+            ViewBag.AuthorId = db.Authors.ToList()
+                .Select(author => new SelectListItem {
+                    Value = author.AuthorId.ToString(), Text = author.AuthorFirstName + " " + author.AuthorLastName
+                })
+                .ToList();
+            return View(thisBook);
         }
 
         [HttpPost("books/{id}/edit")]
@@ -60,7 +66,7 @@ namespace Library.Controllers
         [HttpPost("books/{id}/delete")]
         public ActionResult Delete(int id)
         {
-            Book book = db.Books.FirstOrDefault(books => books.Id == id);
+            Book book = db.Books.FirstOrDefault(books => books.BookId == id);
             db.Books.Remove(book);
             db.SaveChanges();
             return RedirectToAction("Index");

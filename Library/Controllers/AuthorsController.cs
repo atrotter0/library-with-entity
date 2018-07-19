@@ -35,14 +35,14 @@ namespace Library.Controllers
         [HttpGet("/authors/{id}")]
         public ActionResult Details(int id)
         {
-            Author author = db.Authors.FirstOrDefault(authors => authors.Id == id);
+            Author author = db.Authors.FirstOrDefault(authors => authors.AuthorId == id);
             return View(author);
         }
 
         [HttpGet("authors/{id}/edit")]
         public ActionResult Edit(int id)
         {
-            Author author = db.Authors.FirstOrDefault(authors => authors.Id == id);
+            Author author = db.Authors.FirstOrDefault(authors => authors.AuthorId == id);
             return View(author);
         }
 
@@ -57,7 +57,7 @@ namespace Library.Controllers
         [HttpPost("authors/{id}/delete")]
         public ActionResult Delete(int id)
         {
-            Author author = db.Authors.FirstOrDefault(authors => authors.Id == id);
+            Author author = db.Authors.FirstOrDefault(authors => authors.AuthorId == id);
             db.Authors.Remove(author);
             db.SaveChanges();
             return RedirectToAction("Index");

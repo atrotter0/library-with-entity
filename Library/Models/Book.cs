@@ -4,14 +4,12 @@ using System.ComponentModel.DataAnnotations.Schema;
 
 namespace Library.Models
 {
-    [Table("Book")]
+    [Table("Books")]
     public class Book
     {
         [Key]
-        public int Id { get; set; }
-        [StringLength(75)]
-        public string Name { get; set; }
-        public Author Author { get; set; }
+        public int BookId { get; set; }
+        public string BookTitle { get; set; }
         public virtual ICollection<BookAuthor> BookAuthors { get; set; }
     }
 }
