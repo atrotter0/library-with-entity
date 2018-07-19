@@ -16,8 +16,8 @@
                     @Html.TextBoxFor(model => model.BookTitle, new { @class = "form-control" })
                 </div>
                 <div class="form-group">
-                    <h4>@Html.LabelFor(model => model.AuthorId)</h4>
-                    @Html.DropDownList("AuthorId")
+                    <label for="AuthorId"><h4>AuthorId</h4></label>
+                    @Html.DropDownList("AuthorId", null, "Select an Author", new { @class = "form-control" })
                 </div>
                 <input type="submit" value="Update" class="btn btn-md btn-default">
             }

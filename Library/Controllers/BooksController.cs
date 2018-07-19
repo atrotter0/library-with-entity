@@ -46,8 +46,12 @@ namespace Library.Controllers
         [HttpGet("books/{id}/edit")]
         public ActionResult Edit(int id)
         {
-            var thisBook = db.Books.FirstOrDefault(books => books.BookId == id);
-            ViewBag.AuthorId = new SelectList(db.Authors, "AuthorId", "AuthorFirstName");
+            Book thisBook = db.Books.FirstOrDefault(books => books.BookId == id);
+            ViewBag.AuthorId = db.Authors.ToList()
+                .Select(author => new SelectListItem {
+                    Value = author.AuthorId.ToString(), Text = author.AuthorFirstName + " " + author.AuthorLastName
+                })
+                .ToList();
             return View(thisBook);
         }
 

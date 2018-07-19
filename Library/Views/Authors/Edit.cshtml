@@ -12,13 +12,13 @@
             {
                 <div class="form-group">
                     @Html.HiddenFor(model => model.AuthorId)
-                    <label asp-for="FirstName"><h4>First Name</h4></label>
+                    <label asp-for="AuthorFirstName"><h4>First Name</h4></label>
                     @Html.TextBoxFor(model => model.AuthorFirstName, new { @class = "form-control" })
                 </div>
 
                 <div class="form-group">
                     @Html.HiddenFor(model => model.Id)
-                    <label asp-for="LastName"><h4>Last Name</h4></label>
+                    <label asp-for="AuthorLastName"><h4>Last Name</h4></label>
                     @Html.TextBoxFor(model => model.AuthorLastName, new { @class = "form-control" })
                 </div>
                 <input type="submit" value="Update" class="btn btn-md btn-default">
