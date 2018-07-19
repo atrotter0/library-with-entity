@@ -53,6 +53,7 @@ namespace Library.Controllers
         public ActionResult Details(int id)
         {
             Book book = db.Books.FirstOrDefault(books => books.BookId == id);
+            BookCopy bookCopy = db.BooksCopies.FirstOrDefault(books => books.BookId == id);
             var entryList = db.BookAuthors.Where(entry => entry.BookId == id).ToList();
             List<Author> authorList = new List<Author>();
             foreach (var author in entryList)
@@ -61,6 +62,7 @@ namespace Library.Controllers
                 authorList.Add(db.Authors.FirstOrDefault(record => record.AuthorId == authorId));
             }
             ViewBag.AuthorList = authorList;
+            ViewBag.CopiesCount = bookCopy.Copy.Number;
             return View(book);
         }
 
@@ -110,8 +112,12 @@ namespace Library.Controllers
         {
             Book book = db.Books.FirstOrDefault(books => books.BookId == id);
             BookAuthor joinEntry = db.BookAuthors.FirstOrDefault(entry => entry.BookId == id);
+            BookCopy bookCopy = db.BooksCopies.FirstOrDefault(entry => entry.BookId == id);
+            Copy copy = db.Copies.FirstOrDefault(entry => entry.CopyId == bookCopy.CopyId);
             db.Books.Remove(book);
-            db.BookAuthors.Remove(joinEntry);
+            db.BooksCopies.Remove(bookCopy);
+            db.Copies.Remove(copy);
+            if (joinEntry != null) db.BookAuthors.Remove(joinEntry);
             db.SaveChanges();
             return RedirectToAction("Index");
         }

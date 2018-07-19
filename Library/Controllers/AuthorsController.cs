@@ -109,7 +109,7 @@ namespace Library.Controllers
             Author author = db.Authors.FirstOrDefault(authors => authors.AuthorId == id);
             BookAuthor joinEntry = db.BookAuthors.FirstOrDefault(entry => entry.AuthorId == id);
             db.Authors.Remove(author);
-            db.BookAuthors.Remove(joinEntry);
+            if (joinEntry != null) db.BookAuthors.Remove(joinEntry);
             db.SaveChanges();
             return RedirectToAction("Index");
         }
