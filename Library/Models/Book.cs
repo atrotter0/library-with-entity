@@ -11,5 +11,6 @@ namespace Library.Models
         public int BookId { get; set; }
         public string BookTitle { get; set; }
         public virtual ICollection<BookAuthor> BookAuthors { get; set; }
+        public virtual ICollection<BookCopy> BooksCopies { get; set; }
     }
 }
