@@ -17,8 +17,7 @@ namespace Library.Controllers
         [HttpGet("/books")]
         public ActionResult Index()
         {
-            List<Book> bookList = db.Books.ToList();
-            return View(bookList);
+            return View(db.Books.ToList());
         }
 
         [HttpGet("/books/new")]
@@ -79,7 +78,7 @@ namespace Library.Controllers
         {
             db.Entry(book).State = EntityState.Modified;
             var bookMatchesInJoinTable = db.BookAuthors.Where(entry => entry.BookId == book.BookId).ToList();
-            // remove all BookAuthor entries for specified book.
+            // Remove all BookAuthor entries for specified book.
             foreach (var author in bookMatchesInJoinTable)
             {
                 int authorId = author.AuthorId;
