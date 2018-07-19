@@ -15,9 +15,8 @@
                     <label asp-for="AuthorFirstName"><h4>First Name</h4></label>
                     @Html.TextBoxFor(model => model.AuthorFirstName, new { @class = "form-control" })
                 </div>
-
                 <div class="form-group">
-                    @Html.HiddenFor(model => model.Id)
+                    @Html.HiddenFor(model => model.AuthorId)
                     <label asp-for="AuthorLastName"><h4>Last Name</h4></label>
                     @Html.TextBoxFor(model => model.AuthorLastName, new { @class = "form-control" })
                 </div>
