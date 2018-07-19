@@ -8,9 +8,10 @@ using Library.Models;
 namespace Library.Migrations
 {
     [DbContext(typeof(LibraryContext))]
-    partial class LibraryContextModelSnapshot : ModelSnapshot
+    [Migration("20180719225724_ChangePatronsCopiesToPatronsBooks")]
+    partial class ChangePatronsCopiesToPatronsBooks
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
             modelBuilder
                 .HasAnnotation("ProductVersion", "1.1.1");
@@ -109,14 +110,14 @@ namespace Library.Migrations
 
             modelBuilder.Entity("Library.Models.PatronBook", b =>
                 {
-                    b.Property<int>("PatronBookId")
+                    b.Property<int>("PatronCopyId")
                         .ValueGeneratedOnAdd();
 
                     b.Property<int>("BookId");
 
                     b.Property<int>("PatronId");
 
-                    b.HasKey("PatronBookId");
+                    b.HasKey("PatronCopyId");
 
                     b.HasIndex("BookId");
 

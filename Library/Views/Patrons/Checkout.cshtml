@@ -1,0 +1,25 @@
+﻿@model Library.Models.Patron
+
+@{
+    Layout = "_Layout";
+}
+
+<div class="container">
+    <div class="page-box">
+        <h2 class="fancy-shadow page-header">Checkout Book</h2>
+        <div class="form-box">
+            @using(Html.BeginForm())
+            {
+                if (ViewBag.BookIds.Count != 0)
+                {
+                    <div class="form-group">
+                        <label for="BooksIds"><h4>Books:</h4></label>
+                        @Html.DropDownList("BookIds", null, new { multiple = "true", @class = "form-control" })
+                    </div>
+                }
+                <input type = "submit" value="Checkout Book" class="btn btn-md btn-default">
+            }
+        </div>
+        <p>@Html.ActionLink("Back to List", "Index")</p>
+    </div>
+</div>

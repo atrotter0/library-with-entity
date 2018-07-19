@@ -8,10 +8,11 @@
     <div class="page-box">
         <h2 class="fancy-shadow page-header">Patrons</h2>
         @Html.ActionLink("Add Patron", "Create", "Patrons", null, new { @class="btn btn-lg btn-info" })
-        <div class="grid-container">
+        <div class="grid-container-2">
             @foreach(var patron in Model)
             {
                 <div class="grid-item">@Html.DisplayFor(modelItem => patron.FirstName) @Html.DisplayFor(modelItem => patron.LastName)</div>
+                <div class="grid-item">@Html.ActionLink("Checkout Book", "Checkout", new { id = patron.PatronId })</div>
                 <div class="grid-item">@Html.ActionLink("Details", "Details", new { id = patron.PatronId })</div>
                 <div class="grid-item">@Html.ActionLink("Edit", "Edit", new { id = patron.PatronId })</div>
                 <div class="grid-item">

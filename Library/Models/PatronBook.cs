@@ -4,22 +4,22 @@ using System.ComponentModel.DataAnnotations.Schema;
 
 namespace Library.Models
 {
-    [Table("PatronsCopies")]
-    public class PatronCopy
+    [Table("PatronsBooks")]
+    public class PatronBook
     {
         [Key]
-        public int PatronCopyId { get; set; }
+        public int PatronBookId { get; set; }
         public int PatronId { get; set; }
-        public int CopyId { get; set; }
+        public int BookId { get; set; }
         public virtual Patron Patron { get; set; }
-        public virtual Copy Copy { get; set; }
+        public virtual Book Book { get; set; }
 
-        public PatronCopy() { }
+        public PatronBook() { }
 
-        public PatronCopy(int patronId, int copyId)
+        public PatronBook(int patronId, int bookId)
         {
             PatronId = patronId;
-            CopyId = copyId;
+            BookId = bookId;
         }
     }
 }

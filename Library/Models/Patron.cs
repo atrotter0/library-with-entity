@@ -11,7 +11,7 @@ namespace Library.Models
         public int PatronId { get; set; }
         public string FirstName { get; set; }
         public string LastName { get; set; }
-        public virtual ICollection<PatronCopy> PatronCopies { get; set; }
+        public virtual ICollection<PatronBook> PatronsBooks { get; set; }
 
 
 

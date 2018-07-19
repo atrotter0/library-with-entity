@@ -32,13 +32,13 @@ textarea {
     height: 400px
 }
 
-    .jumbotron p {
-        margin-top: 20px
-    }
+.jumbotron p {
+    margin-top: 20px
+}
 
-    .jumbotron .btn {
-        margin-top: 20px
-    }
+.jumbotron .btn {
+    margin-top: 20px
+}
 
 .center {
     text-align: center
@@ -56,6 +56,15 @@ textarea {
 .grid-container {
     display: grid;
     grid-template-columns: 2fr 1fr 1fr 1fr;
+    padding: 10px;
+    margin: 20px auto;
+    border: 1px solid #e0dddd;
+    border-radius: 5px
+}
+
+.grid-container-2 {
+    display: grid;
+    grid-template-columns: 2fr 1fr 1fr 1fr 1fr;
     padding: 10px;
     margin: 20px auto;
     border: 1px solid #e0dddd;
@@ -90,10 +99,10 @@ textarea {
     color: #337ab7
 }
 
-    .no-btn-styles:hover {
-        color: #23527c;
-        text-decoration: underline
-    }
+.no-btn-styles:hover {
+    color: #23527c;
+    text-decoration: underline
+}
 
 /* Hide/rearrange for smaller screens */
 @media screen and (max-width: 767px) {
