@@ -1,4 +1,6 @@
-﻿@model Library.Models.Patron
+﻿@using Library.Models
+@model Library.Models.Patron
+
 @{
   Layout = "_Layout";
 }
@@ -9,7 +11,7 @@
     <ul>
         @foreach (var book in ViewBag.BookList)
         {
-            <li><@book.BookTitle</li>
+            <li>@book.BookTitle</li>
         }
     </ul>
     <hr />
