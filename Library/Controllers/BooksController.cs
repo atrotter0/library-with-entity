@@ -117,7 +117,7 @@ namespace Library.Controllers
             Copy copy = db.Copies.FirstOrDefault(entry => entry.CopyId == bookCopy.CopyId);
             db.Books.Remove(book);
             db.BooksCopies.Remove(bookCopy);
-            db.Copies.Remove(copy);
+            if (copy != null) db.Copies.Remove(copy);
             if (joinEntry != null) db.BookAuthors.Remove(joinEntry);
             db.SaveChanges();
             return RedirectToAction("Index");

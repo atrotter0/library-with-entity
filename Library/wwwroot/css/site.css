@@ -104,13 +104,17 @@ textarea {
     text-decoration: underline;
 }
 
-.secondary-title {
+h4 {
     margin-top: 30px;
 }
 
 .return-book-form {
     display: inline-block;
-    margin-left: 10px;
+    margin-right: 10px;
+}
+
+ul {
+    list-style-type: none;
 }
 
 .list-item {
