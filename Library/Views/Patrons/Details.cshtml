@@ -12,7 +12,7 @@
         @foreach (var book in ViewBag.BookList)
         {
             <li class="list-item">
-                <form class="return-book-form" action="/patrons/@Model.PatronId/return/@book.BookId" method="POST">
+                <form class="return-book-form" action="/patrons/@Model.PatronId/books/@book.BookId/return" method="POST">
                     <button type="submit" class="btn btn-info btn-md btn-return-book">Return Book</button>
                 </form>
                 @book.BookTitle

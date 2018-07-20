@@ -99,6 +99,15 @@ namespace Library.Controllers
             return RedirectToAction("Index");
         }
 
+        [HttpPost("/patrons/{id}/books/{bookId}/return/")]
+        public ActionResult Return(int id, int bookId)
+        {
+            PatronBook joinEntry = db.PatronsBooks.FirstOrDefault(entry => entry.BookId == bookId);
+            db.PatronsBooks.Remove(joinEntry);
+            db.SaveChanges();
+            return RedirectToAction("Index");
+        }
+
         [HttpPost("patrons/{id}/delete")]
         public ActionResult Delete(int id)
         {
