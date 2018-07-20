@@ -112,9 +112,12 @@ namespace Library.Controllers
         public ActionResult Delete(int id)
         {
             Patron patron = db.Patrons.FirstOrDefault(patrons => patrons.PatronId == id);
-            PatronBook joinEntry = db.PatronsBooks.FirstOrDefault(entry => entry.PatronId == id);
+            var patronBooksList = db.PatronsBooks.Where(entry => entry.PatronId == id).ToList();
+            foreach (var entry in patronBooksList)
+            {
+                if (entry != null) db.PatronsBooks.Remove(entry);
+            }
             db.Patrons.Remove(patron);
-            if (joinEntry != null) db.PatronsBooks.Remove(joinEntry);
             db.SaveChanges();
             return RedirectToAction("Index");
         }
