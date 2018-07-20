@@ -89,7 +89,6 @@ namespace Library.Controllers
         [HttpPost("/patrons/{id}/checkout")]
         public ActionResult Checkout(int id, List<int> BookIds)
         {
-            // Add PatronBook entries based on BookId.
             foreach (var bookId in BookIds)
             {
                 Book book = db.Books.FirstOrDefault(bookItem => bookItem.BookId == bookId);

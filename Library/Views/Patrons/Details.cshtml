@@ -7,11 +7,16 @@
 
 <div class="container">
     <h2>@Html.DisplayFor(model => model.FirstName) @Html.DisplayFor(model => model.LastName)</h2>
-    <h4>Books:</h4>
+    <h4 class="secondary-title">Currently Checked Out:</h4>
     <ul>
         @foreach (var book in ViewBag.BookList)
         {
-            <li>@book.BookTitle</li>
+            <li class="list-item">
+                @book.BookTitle
+                <form class="return-book-form" action="/patrons/@Model.PatronId/return/@book.BookId" method="POST">
+                    <button type="submit" class="btn btn-info btn-md btn-return-book">Return Book</button>
+                </form>
+            </li>
         }
     </ul>
     <hr />

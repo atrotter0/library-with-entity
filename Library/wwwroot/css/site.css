@@ -25,32 +25,32 @@ textarea {
 
 /* Make .svg files in the carousel display properly in older browsers */
 .carousel-inner .item img[src$=".svg"] {
-    width: 100%
+    width: 100%;
 }
 
 .jumbotron {
-    height: 400px
+    height: 400px;
 }
 
 .jumbotron p {
-    margin-top: 20px
+    margin-top: 20px;
 }
 
 .jumbotron .btn {
-    margin-top: 20px
+    margin-top: 20px;
 }
 
 .center {
-    text-align: center
+    text-align: center;
 }
 
 .fancy-shadow {
-    text-shadow: 2px 2px 1px #d4d2d2fa
+    text-shadow: 1px 1px 1px #8e8a8a94;
 }
 
 .page-header {
     margin: 10px auto;
-    border-bottom: none
+    border-bottom: none;
 }
 
 .grid-container {
@@ -59,16 +59,16 @@ textarea {
     padding: 10px;
     margin: 20px auto;
     border: 1px solid #e0dddd;
-    border-radius: 5px
+    border-radius: 5px;
 }
 
 .grid-container-2 {
     display: grid;
-    grid-template-columns: 2fr 1fr 1fr 1fr 1fr;
+    grid-template-columns: 2fr 2fr 1fr 1fr 1fr;
     padding: 10px;
     margin: 20px auto;
     border: 1px solid #e0dddd;
-    border-radius: 5px
+    border-radius: 5px;
 }
 
 .grid-item {
@@ -77,31 +77,44 @@ textarea {
     padding: 10px
 }
 
-    .grid-item:nth-child(1), .grid-item:nth-child(2), .grid-item:nth-child(3) {
-        border-top: none
-    }
+.grid-item:nth-child(1), .grid-item:nth-child(2), .grid-item:nth-child(3) {
+    border-top: none;
+}
 
 .page-box {
     width: 80%;
-    margin: 0 auto
+    margin: 0 auto;
 }
 
 .form-box {
     padding: 10px;
     margin: 20px auto;
     border: 1px solid #e0dddd;
-    border-radius: 5px
+    border-radius: 5px;
 }
 
 .no-btn-styles {
     border: none;
     background-color: none;
-    color: #337ab7
+    color: #337ab7;
 }
 
 .no-btn-styles:hover {
     color: #23527c;
-    text-decoration: underline
+    text-decoration: underline;
+}
+
+.secondary-title {
+    margin-top: 30px;
+}
+
+.return-book-form {
+    display: inline-block;
+    margin-left: 10px;
+}
+
+.list-item {
+    margin: 20px 30px;
 }
 
 /* Hide/rearrange for smaller screens */
